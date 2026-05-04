@@ -56,7 +56,7 @@ export function ref(refkey: Refkey): () => [string, OutputSymbol | undefined] {
 
     let localSymbol: GoSymbol | undefined;
 
-    const { pkgSymbol: pkgSymbol, members: pathFromPkg } = closestPackageScope(
+    const { pkgSymbol, members: pathFromPkg } = closestPackageScope(
       pathDown,
       lexicalDeclaration,
       memberPath,

@@ -37,7 +37,7 @@ export function stc<T extends {}>(
     fn.props = args[0]! as T;
     fn.code = (template, ...substitutions): ComponentCreator<T> => {
       const propsWithChildren = {
-        ...(args[0] ?? {}),
+        ...args[0],
         children: code(template, ...substitutions),
       };
 
@@ -48,7 +48,7 @@ export function stc<T extends {}>(
     };
     fn.text = (template, ...substitutions) => {
       const propsWithChildren = {
-        ...(args[0] ?? {}),
+        ...args[0],
         children: text(template, ...substitutions),
       };
 
@@ -59,7 +59,7 @@ export function stc<T extends {}>(
     };
     fn.children = (...children: Children[]): ComponentCreator<T> => {
       const propsWithChildren = {
-        ...(args[0] ?? {}),
+        ...args[0],
         children,
       };
 

@@ -34,7 +34,7 @@ export function sti<T extends keyof IntrinsicElements>(
     const fn: StiComponentCreator<T> = () => createIntrinsic(name, props!);
     fn.children = (...children: Children[]) => {
       const propsWithChildren = {
-        ...(props ?? {}),
+        ...props,
         children,
       };
 
@@ -43,7 +43,7 @@ export function sti<T extends keyof IntrinsicElements>(
 
     fn.code = (template, ...substitutions) => {
       const propsWithChildren = {
-        ...(args[0] ?? {}),
+        ...args[0],
         children: code(template, ...substitutions),
       };
 
@@ -52,7 +52,7 @@ export function sti<T extends keyof IntrinsicElements>(
 
     fn.text = (template, ...substitutions) => {
       const propsWithChildren = {
-        ...(args[0] ?? {}),
+        ...args[0],
         children: text(template, ...substitutions),
       };
 
