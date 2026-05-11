@@ -8,10 +8,7 @@ export interface CodeProps {
 export function Code(props: CodeProps) {
   return text`
     <Code
-      code={\`${dedentToRoot().children(
-        indent().children(props.children),
-        hbr(),
-      )}\`}
+      code={\`${dedentToRoot().children(indent().children(props.children), hbr())}\`}
       lang="${props.language}"
     />
   `;

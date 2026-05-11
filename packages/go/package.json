@@ -2,6 +2,17 @@
   "name": "@alloy-js/go",
   "version": "0.1.0",
   "description": "Go bindings for Alloy",
+  "keywords": [],
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "imports": {
+    "#test/*": "./test/*",
+    "#components/*": {
+      "development": "./src/components/*",
+      "default": "./dist/src/components/*"
+    }
+  },
   "exports": {
     ".": {
       "development": "./src/index.ts",
@@ -10,13 +21,6 @@
     "./stc": {
       "development": "./src/components/stc/index.ts",
       "import": "./dist/src/components/stc/index.js"
-    }
-  },
-  "imports": {
-    "#test/*": "./test/*",
-    "#components/*": {
-      "development": "./src/components/*",
-      "default": "./dist/src/components/*"
     }
   },
   "scripts": {
@@ -28,9 +32,6 @@
     "test": "vitest run",
     "prepack": "node ../../scripts/strip-dev-exports.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@alloy-js/core": "workspace:~",
     "change-case": "catalog:",
@@ -44,6 +45,5 @@
     "concurrently": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "type": "module"
+  }
 }

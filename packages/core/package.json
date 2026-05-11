@@ -2,7 +2,17 @@
   "name": "@alloy-js/core",
   "version": "0.21.0",
   "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "brian.terlson@microsoft.com",
+  "type": "module",
   "main": "./dist/src/index.js",
+  "browser": {
+    "./dist/src/host/alloy-host.js": "./dist/src/host/alloy-host.browser.js",
+    "./src/host/alloy-host.ts": "./src/host/alloy-host.browser.ts",
+    "./dist/src/inspect.js": "./dist/src/inspect.browser.js",
+    "./src/inspect.ts": "./src/inspect.browser.ts"
+  },
   "exports": {
     ".": {
       "browser": "./dist/src/index.browser.js",
@@ -30,12 +40,6 @@
       "import": "./dist/src/components/index.js"
     }
   },
-  "browser": {
-    "./dist/src/host/alloy-host.js": "./dist/src/host/alloy-host.browser.js",
-    "./src/host/alloy-host.ts": "./src/host/alloy-host.browser.ts",
-    "./dist/src/inspect.js": "./dist/src/inspect.browser.js",
-    "./src/inspect.ts": "./src/inspect.browser.ts"
-  },
   "scripts": {
     "generate-docs": "api-extractor run",
     "build": "alloy build && pnpm run generate-docs",
@@ -45,14 +49,11 @@
     "watch": "alloy build --watch",
     "prepack": "node ../../scripts/strip-dev-exports.js"
   },
-  "keywords": [],
-  "author": "brian.terlson@microsoft.com",
-  "license": "MIT",
   "dependencies": {
     "@vue/reactivity": "catalog:",
-    "picocolors": "catalog:",
     "cli-table3": "catalog:",
     "pathe": "catalog:",
+    "picocolors": "catalog:",
     "prettier": "catalog:"
   },
   "devDependencies": {
@@ -64,6 +65,5 @@
     "typescript": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"
-  },
-  "type": "module"
+  }
 }

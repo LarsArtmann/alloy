@@ -1,6 +1,19 @@
 {
   "name": "@alloy-js/babel-plugin",
   "version": "0.2.1",
+  "description": "A whitespace-preserving JSX transformation",
+  "keywords": [],
+  "homepage": "https://github.com/alloy-framework/alloy#readme",
+  "bugs": {
+    "url": "https://github.com/alloy-framework/alloy/issues"
+  },
+  "license": "MIT",
+  "author": "Brian Terlson <brian.terlson@microsoft.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alloy-framework/alloy.git"
+  },
+  "type": "module",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc -p .",
@@ -8,34 +21,21 @@
     "test:watch": "vitest -w",
     "clean": "rimraf dist/ .temp/"
   },
-  "keywords": [],
-  "author": "Brian Terlson <brian.terlson@microsoft.com>",
-  "license": "MIT",
-  "description": "A whitespace-preserving JSX transformation",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alloy-framework/alloy.git"
-  },
-  "bugs": {
-    "url": "https://github.com/alloy-framework/alloy/issues"
-  },
-  "homepage": "https://github.com/alloy-framework/alloy#readme",
   "dependencies": {
     "@babel/generator": "catalog:",
     "@babel/helper-module-imports": "catalog:",
     "@babel/plugin-syntax-jsx": "catalog:",
     "@babel/types": "catalog:"
   },
-  "peerDependencies": {
-    "@babel/core": "^7.24.7"
-  },
   "devDependencies": {
     "@types/babel__core": "catalog:",
     "@types/babel__generator": "catalog:",
     "@types/babel__traverse": "catalog:",
     "babel-plugin-tester": "catalog:",
-    "vitest": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
-  "type": "module"
+  "peerDependencies": {
+    "@babel/core": "^7.24.7"
+  }
 }

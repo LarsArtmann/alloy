@@ -49,7 +49,10 @@ export class PythonModuleScope extends PythonLexicalScope {
     const localSymbol = new PythonOutputSymbol(
       targetSymbol.name,
       this.symbols,
-      { binder: this.binder, aliasTarget: targetSymbol },
+      {
+        binder: this.binder,
+        aliasTarget: targetSymbol,
+      },
     );
 
     this.importedSymbols.set(targetSymbol, localSymbol);

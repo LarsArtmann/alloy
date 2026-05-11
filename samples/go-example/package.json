@@ -1,11 +1,28 @@
 {
   "name": "go-example",
   "version": "1.0.0",
-  "author": "",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
   "private": true,
+  "description": "",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    },
+    "./stc": {
+      "import": "./dist/src/stc.js",
+      "types": "./dist/src/stc.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "alloy build",
+    "clean": "rimraf dist/ .temp/ alloy-output/",
+    "test": "vitest run",
+    "test:watch": "vitest -w",
+    "watch": "alloy build --watch"
+  },
   "dependencies": {
     "@alloy-js/core": "workspace:~",
     "@alloy-js/go": "workspace:~",
@@ -23,22 +40,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "scripts": {
-    "build": "alloy build",
-    "clean": "rimraf dist/ .temp/ alloy-output/",
-    "test": "vitest run",
-    "test:watch": "vitest -w",
-    "watch": "alloy build --watch"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/src/index.js",
-      "types": "./dist/src/index.d.ts"
-    },
-    "./stc": {
-      "import": "./dist/src/stc.js",
-      "types": "./dist/src/stc.d.ts"
-    }
   }
 }

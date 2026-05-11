@@ -1,0 +1,122 @@
+direction: down
+
+title: {
+  label: Alloy Framework — Current Architecture
+  shape: text
+  style: {
+    font-size: 24
+    bold: true
+  }
+}
+
+user_code: {
+  label: User Code (JSX / STC / String Templates)
+  shape: rectangle
+  style: {
+    fill: "#E8F5E9"
+    stroke: "#4CAF50"
+  }
+}
+
+core: {
+  label: "@alloy-js/core"
+  shape: rectangle
+  style: {
+    fill: "#E3F2FD"
+    stroke: "#1976D2"
+    font-size: 18
+  }
+
+  reactive_system: {
+    label: "Reactive System\n(Vue reactivity)"
+    shape: rectangle
+    style: {
+      fill: "#BBDEFB"
+      stroke: "#1976D2"
+    }
+    effect: {label: "effect / memo / computed"}
+    scheduler: {label: "Scheduler\n(immediate + deferred queues)"}
+    context_hierarchy: {label: "Context Hierarchy\n(globalContext stack)"}
+    effect -> scheduler -> context_hierarchy
+  }
+
+  symbol_system: {
+    label: "Symbol System"
+    shape: rectangle
+    style: {
+      fill: "#BBDEFB"
+      stroke: "#1976D2"
+    }
+    refkeys: {label: "Refkeys\n(composite key system)"}
+    binder: {label: "Binder\n(resolution engine)"}
+    scopes: {label: "Scopes\n(hierarchical tree)"}
+    symbols: {label: "Symbols\n(declarations + members)"}
+    symbol_tables: {label: "Symbol Tables\n(reactive sets + indexes)"}
+    refkeys -> binder -> scopes -> symbols -> symbol_tables
+  }
+
+  rendering: {
+    label: "Rendering Pipeline"
+    shape: rectangle
+    style: {
+      fill: "#BBDEFB"
+      stroke: "#1976D2"
+    }
+    component_tree: {label: "1. Component Tree\n(JSX → ComponentCreators)"}
+    text_tree: {label: "2. Rendered Text Tree\n(reactive nested arrays)"}
+    doc_tree: {label: "3. Document Tree\n(Prettier builders)"}
+    output: {label: "Output\n(Record<path, content>)"}
+    component_tree -> text_tree -> doc_tree -> output
+  }
+
+  host: {
+    label: "Host Abstraction"
+    shape: rectangle
+    style: {
+      fill: "#FFF9C4"
+      stroke: "#F9A825"
+    }
+    node_host: {label: "Node.js Host\n(fs, fs/promises)"}
+    browser_host: {label: "Browser Host\n(stubs)"}
+  }
+
+  reactive_system -> rendering
+  symbol_system -> rendering
+  rendering -> host
+}
+
+language_packages: {
+  label: "Language Packages"
+  shape: rectangle
+  style: {
+    fill: "#F3E5F5"
+    stroke: "#7B1FA2"
+    font-size: 16
+  }
+
+  typescript: {label: "@alloy-js/typescript\n41 components"}
+  go: {label: "@alloy-js/go\n16 components"}
+  java: {label: "@alloy-js/java\n20 components"}
+  python: {label: "@alloy-js/python\n21 components"}
+  csharp: {label: "@alloy-js/csharp\n34 components"}
+  json: {label: "@alloy-js/json\n5 components"}
+  markdown: {label: "@alloy-js/markdown\n6 components"}
+  msbuild: {label: "@alloy-js/msbuild\nMSBuild XML"}
+}
+
+tooling: {
+  label: "Tooling"
+  shape: rectangle
+  style: {
+    fill: "#FFF3E0"
+    stroke: "#E65100"
+  }
+  cli: {label: "@alloy-js/cli\n(alloy build / watch)"}
+  babel: {label: "Babel Plugin\n(whitespace-preserving JSX)"}
+  rollup: {label: "Rollup Plugin\n(Vite integration)"}
+  create: {label: "@alloy-js/create\n(project scaffolding)"}
+}
+
+user_code -> core: "uses"
+core -> language_packages: "renders via"
+language_packages -> tooling: "built by"

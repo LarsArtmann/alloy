@@ -103,9 +103,7 @@ describe("PyDocExample", () => {
       [
         <py.PyDoc>
           <Prose>This is an example of a docstring with a code sample.</Prose>
-          <py.PyDocExample>
-            {`print("Hello world!")\nx = "Hello"\nprint(x)`}
-          </py.PyDocExample>
+          <py.PyDocExample>{`print("Hello world!")\nx = "Hello"\nprint(x)`}</py.PyDocExample>
         </py.PyDoc>,
       ],
       { printOptions: { printWidth: 40 } },
@@ -888,9 +886,7 @@ describe("Full example", () => {
             This is an example of a long docstring that will be broken in lines.
             We will also render another paragraph after this one.
           </Prose>,
-          <py.PyDocExample>
-            {`print("Hello world!")\nx = "Hello"\nprint(x)`}
-          </py.PyDocExample>,
+          <py.PyDocExample>{`print("Hello world!")\nx = "Hello"\nprint(x)`}</py.PyDocExample>,
         ]}
         attributes={[
           {
@@ -1006,9 +1002,7 @@ describe("Full example", () => {
             This is an example of a long docstring that will be broken in lines.
             We will also render another paragraph after this one.
           </Prose>,
-          <py.PyDocExample>
-            {`print("Hello world!")\nx = "Hello"\nprint(x)`}
-          </py.PyDocExample>,
+          <py.PyDocExample>{`print("Hello world!")\nx = "Hello"\nprint(x)`}</py.PyDocExample>,
         ]}
         parameters={[
           {

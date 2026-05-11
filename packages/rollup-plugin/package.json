@@ -1,21 +1,19 @@
 {
   "name": "@alloy-js/rollup-plugin",
   "version": "0.1.0",
-  "type": "module",
   "description": "Prettier plugin for Alloy JSX/TSX files that disable formatting for JSX elements",
   "homepage": "https://github.com/alloy-framework/alloy",
+  "bugs": "https://github.com/alloy-framework/alloy/issues",
   "license": "MIT",
   "author": "Microsoft",
-  "main": "dist/index.js",
-  "exports": {
-    ".": "./dist/index.js"
-  },
+  "repository": "https://github.com/alloy-framework/alloy.git",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/alloy-framework/alloy.git",
-  "engines": {
-    "node": ">=18.0.0"
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
   },
   "scripts": {
     "watch": "tsc -p ./tsconfig.build.json --watch",
@@ -33,5 +31,7 @@
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "bugs": "https://github.com/alloy-framework/alloy/issues"
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

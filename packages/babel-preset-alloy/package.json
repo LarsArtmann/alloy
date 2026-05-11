@@ -2,6 +2,10 @@
   "name": "@alloy-js/babel-preset",
   "version": "0.2.1",
   "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +13,5 @@
   "dependencies": {
     "@alloy-js/babel-plugin": "workspace:~",
     "@alloy-js/babel-plugin-jsx-dom-expressions": "workspace:~"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "type": "module"
+  }
 }

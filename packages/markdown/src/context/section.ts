@@ -5,7 +5,9 @@ export interface SectionContext {
 }
 
 export const SectionContext: ComponentContext<SectionContext> =
-  createContext<SectionContext>({ level: 1 });
+  createContext<SectionContext>({
+    level: 1,
+  });
 
 export function useSectionContext(): SectionContext {
   const context = useContext(SectionContext);

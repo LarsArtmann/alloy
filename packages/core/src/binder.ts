@@ -617,9 +617,7 @@ export function createOutputBinder(options: BinderOptions = {}): Binder {
       const memberOwner = base.hasTypeSymbol ? base.type : base.dealias();
       if (member.ownerSymbol !== memberOwner) {
         throw new Error(
-          `${formatSymbolName(
-            member,
-          )} is not a member of ${formatSymbolName(base)}.`,
+          `${formatSymbolName(member)} is not a member of ${formatSymbolName(base)}.`,
         );
       }
     }

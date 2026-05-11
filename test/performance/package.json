@@ -1,12 +1,19 @@
 {
   "name": "performance",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "alloy build",
     "bench": "pnpm run build && node dist/src/index.js"
+  },
+  "dependencies": {
+    "picocolors": "catalog:"
   },
   "devDependencies": {
     "@alloy-js/cli": "workspace:~",
@@ -21,12 +28,5 @@
     "listr2": "^9.0.3",
     "typescript": "catalog:"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.13.1",
-  "type": "module",
-  "dependencies": {
-    "picocolors": "catalog:"
-  }
+  "packageManager": "pnpm@10.13.1"
 }

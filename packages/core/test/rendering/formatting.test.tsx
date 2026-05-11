@@ -367,7 +367,9 @@ describe("fill", () => {
 
     expect(<fill>{filledItems}</fill>).toRenderTo(
       `one two three four\nfive six`,
-      { printWidth: 20 },
+      {
+        printWidth: 20,
+      },
     );
   });
 });

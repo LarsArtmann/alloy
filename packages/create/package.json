@@ -2,8 +2,21 @@
   "name": "@alloy-js/create",
   "version": "0.21.0",
   "description": "Create an Alloy project with npm init @alloy-js",
-  "main": "./dist/src/index.js",
+  "keywords": [],
+  "license": "MIT",
+  "author": "brian.terlson@microsoft.com",
   "bin": "./dist/src/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "package.json",
+    "deps.json",
+    "deps-versions.json"
+  ],
+  "type": "module",
+  "main": "./dist/src/index.js",
   "scripts": {
     "build": "node scripts/gen-deps.js && alloy build",
     "clean": "rimraf dist/ .temp/",
@@ -12,9 +25,6 @@
     "watch": "alloy build --watch",
     "prepack": "node ../../scripts/strip-dev-exports.js"
   },
-  "keywords": [],
-  "author": "brian.terlson@microsoft.com",
-  "license": "MIT",
   "dependencies": {
     "@alloy-js/core": "workspace:~",
     "@alloy-js/typescript": "workspace:~",
@@ -32,15 +42,5 @@
     "typescript": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"
-  },
-  "type": "module",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE",
-    "CHANGELOG.md",
-    "package.json",
-    "deps.json",
-    "deps-versions.json"
-  ]
+  }
 }

@@ -1,0 +1,160 @@
+direction: down
+
+title: {
+  label: Alloy Framework — Target Architecture
+  shape: text
+  style: {
+    font-size: 24
+    bold: true
+  }
+}
+
+user_code: {
+  label: User Code (JSX / STC / String Templates)
+  shape: rectangle
+  style: {
+    fill: "#E8F5E9"
+    stroke: "#4CAF50"
+  }
+}
+
+core: {
+  label: "@alloy-js/core"
+  shape: rectangle
+  style: {
+    fill: "#E3F2FD"
+    stroke: "#1976D2"
+    font-size: 18
+  }
+
+  reactive_adapter: {
+    label: "Reactivity Adapter\n(abstracts Vue internals)"
+    shape: rectangle
+    style: {
+      fill: "#C8E6C9"
+      stroke: "#388E3C"
+    }
+    note: {
+      label: "Decoupled from Vue track/trigger internals.\nSwap reactivity backend without changing consumers."
+      shape: text
+      style: {font-size: 11}
+    }
+  }
+
+  symbol_system: {
+    label: "Symbol System"
+    shape: rectangle
+    style: {
+      fill: "#BBDEFB"
+      stroke: "#1976D2"
+    }
+    symbol_registry: {label: "Symbol Registry\n(extracted from binder)"}
+    resolution_engine: {label: "Resolution Engine\n(scope chain + member paths)"}
+    scope_manager: {label: "Scope Manager\n(tree maintenance)"}
+    symbol_registry -> resolution_engine -> scope_manager
+  }
+
+  rendering: {
+    label: "Rendering Pipeline"
+    shape: rectangle
+    style: {
+      fill: "#BBDEFB"
+      stroke: "#1976D2"
+    }
+    component_tree: {label: "Component Tree"}
+    text_tree: {label: "Rendered Text Tree"}
+    doc_tree: {label: "Document Tree"}
+    output: {label: "Output"}
+    component_tree -> text_tree -> doc_tree -> output
+  }
+
+  intrinsic_registry: {
+    label: "Intrinsic Handler Registry"
+    shape: rectangle
+    style: {
+      fill: "#C8E6C9"
+      stroke: "#388E3C"
+    }
+    note2: {
+      label: "Extensible: new intrinsic types\nadded without modifying render.ts"
+      shape: text
+      style: {font-size: 11}
+    }
+  }
+
+  render_context: {
+    label: "Per-Render Context\n(eliminates global state)"
+    shape: rectangle
+    style: {
+      fill: "#C8E6C9"
+      stroke: "#388E3C"
+    }
+    note3: {
+      label: "globalContext, scheduler queues,\nand refkey caches are scoped\nper render, enabling parallelism."
+      shape: text
+      style: {font-size: 11}
+    }
+  }
+
+  host: {
+    label: "Host Abstraction (complete)"
+    shape: rectangle
+    style: {
+      fill: "#FFF9C4"
+      stroke: "#F9A825"
+    }
+    node_host: {label: "Node.js Host"}
+    browser_host: {label: "Browser Host\n(full implementation)"}
+  }
+
+  post_processing: {
+    label: "Post-Processing Pipeline\n(hooks for lint, format, headers)"
+    shape: rectangle
+    style: {
+      fill: "#C8E6C9"
+      stroke: "#388E3C"
+    }
+  }
+
+  reactive_adapter -> rendering
+  symbol_system -> rendering
+  render_context -> rendering
+  intrinsic_registry -> rendering
+  rendering -> host
+  rendering -> post_processing
+}
+
+shared_utils: {
+  label: "@alloy-js/shared (new)"
+  shape: rectangle
+  style: {
+    fill: "#FFCDD2"
+    stroke: "#D32F2F"
+  }
+  map_get: {label: "mapGet helper\n(from go/csharp)"}
+  use_lexical_scope: {label: "createUseLexicalScope factory\n(from ts/java/python/go)"}
+  call_sig_props: {label: "getCallSignatureProps\n(from ts/python)"}
+  stc_sti: {label: "unified stc/sti factory\n(from core)"}
+  descriptor_lib: {label: "createLibraryFromDescriptor\n(from all 5 languages)"}
+}
+
+language_packages: {
+  label: "Language Packages (thin adapters)"
+  shape: rectangle
+  style: {
+    fill: "#F3E5F5"
+    stroke: "#7B1FA2"
+  }
+  typescript: {label: "@alloy-js/typescript"}
+  go: {label: "@alloy-js/go"}
+  java: {label: "@alloy-js/java"}
+  python: {label: "@alloy-js/python"}
+  csharp: {label: "@alloy-js/csharp"}
+  json: {label: "@alloy-js/json"}
+  markdown: {label: "@alloy-js/markdown"}
+  rust: {label: "@alloy-js/rust\n(NEW - easy to add)"}
+}
+
+user_code -> core: "uses"
+core -> shared_utils: "extracts to"
+shared_utils -> language_packages: "consumed by"

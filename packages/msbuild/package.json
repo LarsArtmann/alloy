@@ -2,12 +2,10 @@
   "name": "@alloy-js/msbuild",
   "version": "0.21.0",
   "description": "Alloy components for msbuild files.",
-  "exports": {
-    "./components": {
-      "development": "./src/components/index.tsx",
-      "import": "./dist/src/components/index.js"
-    }
-  },
+  "keywords": [],
+  "license": "MIT",
+  "author": "jhendrix@microsoft.com",
+  "type": "module",
   "imports": {
     "#test/*": "./test/*",
     "#components/*": {
@@ -23,6 +21,12 @@
       "default": "./dist/src/builtins.js"
     }
   },
+  "exports": {
+    "./components": {
+      "development": "./src/components/index.tsx",
+      "import": "./dist/src/components/index.js"
+    }
+  },
   "scripts": {
     "generate-docs": "api-extractor run",
     "build": "alloy build && pnpm run generate-docs",
@@ -33,9 +37,6 @@
     "generate:components": "node ./dist/scripts/generate-msbuild-components.js",
     "prepack": "node ../../scripts/strip-dev-exports.js"
   },
-  "keywords": [],
-  "author": "jhendrix@microsoft.com",
-  "license": "MIT",
   "dependencies": {
     "@alloy-js/core": "workspace:~",
     "change-case": "catalog:",
@@ -54,6 +55,5 @@
     "js-yaml": "^4.1.0",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "type": "module"
+  }
 }

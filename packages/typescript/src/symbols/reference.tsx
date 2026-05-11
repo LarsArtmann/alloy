@@ -29,7 +29,9 @@ export function ref(
   const sourceFile = useContext(SourceFileContext);
   const resolveResult = resolve<TSOutputScope, TSOutputSymbol>(
     refkey as Refkey,
-    { memberResolver },
+    {
+      memberResolver,
+    },
   );
 
   return memo(() => {
@@ -85,7 +87,9 @@ export function ref(
         sourceFile!.scope.addImport(
           lexicalDeclaration,
           pathDown[0] as TSModuleScope,
-          { type: options?.type },
+          {
+            type: options?.type,
+          },
         ),
       );
     }

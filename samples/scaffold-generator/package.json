@@ -1,17 +1,18 @@
 {
   "name": "@alloy-js/sample-scaffold-generator",
-  "private": "true",
   "version": "1.0.0",
+  "private": "true",
   "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "brian.terlson@microsoft.com",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "alloy build",
     "clean": "rimraf dist/ .temp/",
     "watch": "alloy build --watch"
   },
-  "keywords": [],
-  "author": "brian.terlson@microsoft.com",
-  "license": "MIT",
   "dependencies": {
     "@alloy-js/core": "workspace:~",
     "@alloy-js/markdown": "workspace:~"
@@ -24,6 +25,5 @@
     "concurrently": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "type": "module"
+  }
 }
